@@ -1,0 +1,10 @@
+.eightBitfont{
+    font-family: "Eight-Bit-Madness", Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+
+.card {
+    margin: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}

@@ -1,0 +1,11 @@
+<h3>Pokemons</h3>
+<div>
+    <nz-card class="card" *ngFor="let pokemon of pokemonList" [nzTitle]="null" [nzActions]="[actionEdit]">
+        <p class="eightBitfont">{{pokemon.name}}</p>
+    </nz-card>
+    <ng-template #actionEdit>
+        <i nz-icon nzType="plus"></i>
+    </ng-template>
+</div>
+<nz-pagination [nzPageIndex]="pageNumber" [nzTotal]="totalPokemons"></nz-pagination> 
+

@@ -20,4 +20,8 @@ export class PokemonService {
     return this.api.get(`${this.RESOURSE_NAME}/${name}`);
   }
 
+  public getDetails(url:string): Observable<any> {
+    return this.api.httpClient.get(url);
+  }
+
 }

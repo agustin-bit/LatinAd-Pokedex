@@ -1,0 +1,9 @@
+.eightBitfont{
+    font-size: 20px;
+    font-family: "Eight-Bit-Madness", Arial, Helvetica, sans-serif;
+}
+
+.ant-table-cell {
+    padding: 0;
+    font-size: 20px;
+}

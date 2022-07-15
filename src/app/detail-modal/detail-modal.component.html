@@ -1,0 +1,99 @@
+<nz-modal *ngIf="status && parsedDetail != null" [(nzVisible)]="status" [nzTitle]="null" (nzOnCancel)="closeModal()" [nzCancelText]="null" [nzOkText]="null">
+    <ng-container *nzModalContent>
+
+        <nz-spin [nzSpinning]="isLoading"> 
+            <nz-table [nzTemplateMode]="true" class="eightBitfont">
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{parsedDetail.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Species:</td>
+                        <td>{{parsedDetail.species}}</td>
+                    </tr>
+                    <tr>
+                        <td>Abilities:</td>
+                        <td>{{parsedDetail.abilities}}</td>
+                    </tr>
+                    <tr>
+                        <td>Base Exp.:</td>
+                        <td>{{parsedDetail.baseExperience}} EPs</td>
+                    </tr>
+                    <tr>
+                        <td>Height:</td>
+                        <td>{{parsedDetail.height}} cm</td>
+                    </tr>
+                    <tr>
+                        <td>Weight:</td>
+                        <td>{{parsedDetail.weight}} kg</td>
+                    </tr>
+                    <tr *ngIf="parsedDetail.heldItems != ''">
+                        <td>Held items:</td>
+                        <td>{{parsedDetail.heldItems}}</td>
+                    </tr>
+                    <tr>
+                        <td>Moves:</td>
+                        <td (click)="seeAllMoves()"> {{parsedDetail.moves}}</td>
+                    </tr>
+                    <tr>
+                        <td>Types:</td>
+                        <td>{{parsedDetail.types}}</td>
+                    </tr>
+                </tbody>
+            </nz-table>
+    
+            <hr>
+    
+            <h3 class="eightBitfont">Stats:</h3>
+            <nz-table [nzTemplateMode]="true" class="eightBitfont">
+                <thead>
+                    <tr>
+                        <th>HP</th>
+                        <th>Attack</th>
+                        <th>Defense</th>
+                        <th>Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{parsedDetail.hp}}</td>
+                        <td>{{parsedDetail.attack}}</td>
+                        <td>{{parsedDetail.defense}}</td>
+                        <td>{{parsedDetail.speed}}</td>
+                    </tr>
+                </tbody>
+            </nz-table>
+    
+            <hr>
+    
+            <h3 class="eightBitfont">Sprites:</h3>
+            <nz-table [nzTemplateMode]="true" class="eightBitfont">
+                <tbody>
+                    <tr *ngIf="parsedDetail.frontImage">
+                        <td>Default</td>
+                        <td><img [src]="parsedDetail.frontImage" alt="front default sprite"></td>
+                        <td *ngIf="parsedDetail.backImage"><img [src]="parsedDetail.backImage" alt="back default sprite"></td>
+                    </tr>
+                    <tr *ngIf="parsedDetail.frontShinyImage">
+                        <td>Shiny</td>
+                        <td><img [src]="parsedDetail.frontShinyImage" alt="front shiny sprite"></td>
+                        <td *ngIf="parsedDetail.backShinyImage"><img [src]="parsedDetail.backShinyImage" alt="back shiny sprite"></td>
+                    </tr>
+                    <tr *ngIf="parsedDetail.frontImageF">
+                        <td>Default (F)</td>
+                        <td><img [src]="parsedDetail.frontImageF" alt="front default female sprite"></td>
+                        <td *ngIf="parsedDetail.backImageF"><img [src]="parsedDetail.backImageF" alt="back default female sprite"></td>
+                    </tr>
+                    <tr *ngIf="parsedDetail.frontImageF">
+                        <td>Shiny (F)</td>
+                        <td><img [src]="parsedDetail.frontShinyImageF" alt="front shiny female sprite"></td>
+                        <td *ngIf="parsedDetail.backShinyImageF"><img [src]="parsedDetail.backShinyImageF" alt="back shiny female sprite"></td>
+                    </tr>
+                </tbody>
+            </nz-table>
+
+        </nz-spin>       
+
+    </ng-container>
+</nz-modal>

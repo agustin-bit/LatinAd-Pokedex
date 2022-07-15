@@ -1,10 +1,29 @@
-.eightBitfont{
+.eight-bit-font {
     font-family: "Eight-Bit-Madness", Arial, Helvetica, sans-serif;
     font-size: 35px;
+
 }
 
 .card {
-    margin: 5px;
-    text-align: center;
+    text-align: center !important;
     text-transform: uppercase;
+    padding: 10px;
+    border: 1px solid #e9ecec;
+}
+
+.card:hover {
+    background-color: #f3f3f3;
+}
+
+.card-holder {
+    max-width: 1200px;
+    margin: 10px auto;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+}
+
+.pagination-container {
+    margin-top: 10px;
+    text-align: center;
 }

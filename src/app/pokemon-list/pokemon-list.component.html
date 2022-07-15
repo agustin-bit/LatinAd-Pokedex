@@ -1,11 +1,30 @@
-<h3>Pokemons</h3>
-<div>
-    <nz-card class="card" *ngFor="let pokemon of pokemonList" [nzTitle]="null" [nzActions]="[actionEdit]">
-        <p class="eightBitfont">{{pokemon.name}}</p>
-    </nz-card>
-    <ng-template #actionEdit>
-        <i nz-icon nzType="plus"></i>
-    </ng-template>
-</div>
-<nz-pagination [nzPageIndex]="pageNumber" [nzTotal]="totalPokemons"></nz-pagination> 
+<!-- Barra de búsqueda -->
+<nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+    <input (keyup.enter)="searchPokemon()" type="text" nz-input placeholder="Pokemon's name" [(ngModel)]="pokemonName" />
+</nz-input-group>
+<ng-template #suffixIconButton>
+    <button (click)="searchPokemon()" nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+</ng-template>
 
+<!-- Listado de pokemons -->
+<nz-spin [nzSpinning]="isLoading">
+    <div class="card-holder">
+        <div class="card" *ngFor="let pokemon of pokemonList" (click)="getDetails(pokemon.url)">
+            <h3 class="eight-bit-font">{{pokemon.name}}</h3>
+            <img [src]="pokemon.imageUrl" alt="" srcset="">
+        </div>
+    </div>
+</nz-spin>
+
+<!-- Placeholder cuando no se encuentra un pokemon con el nombre especificado -->
+<app-not-found-placeholder *ngIf="this.noResult"></app-not-found-placeholder>
+
+<!-- Paginado -->
+<div class="pagination-container">
+    <nz-pagination [nzResponsive]="true" (nzPageIndexChange)="pageNumberChange($event)" [(nzPageIndex)]="pageNumber" [nzTotal]="totalPokemons">
+    </nz-pagination>
+</div>
+
+<!-- Pop up con el detalle -->
+<app-detail-modal [detail]="detailPokemon" [status]="isDetailopen" (closeModalEvent)="isDetailopen = false;">
+</app-detail-modal>

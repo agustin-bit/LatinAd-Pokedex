@@ -1,7 +1,9 @@
 .logo {
     width: 120px;
     height: 31px;
-    background: rgba(255, 255, 255, 0.2);
+    background: url(../assets/images/pokeapi_256.3fa72200.png);
+    background-size: contain;
+    background-repeat: no-repeat;
     margin: 16px 24px 16px 0;
     float: left;
   }
@@ -15,7 +17,7 @@
   }
 
   nz-content {
-    padding: 0 50px;
+    padding: 0;
   }
 
   nz-footer {
@@ -26,6 +28,10 @@
     background: #fff;
     padding: 24px;
     min-height: 280px;
+  }
+
+  .ant-layout-header {
+    background-color: #2a75bb;
   }
 
 @font-face {
